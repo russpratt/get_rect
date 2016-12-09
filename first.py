@@ -2,13 +2,14 @@ import random
 import pygame
 from pygame.locals import *
 
-
+#from tut here https://realpython.com/blog/python/pygame-a-primer/
+#pygame docs: http://www.pygame.org/docs/
 
 class Player(pygame.sprite.Sprite):
     def __init__(self):
         super(Player, self).__init__()
-        self.image = pygame.image.load("art/jet.png").convert()
-        self.image.set_colorkey((255,255,255), RLEACCEL)
+        self.image = pygame.image.load("art/f.png").convert()
+        self.image.set_colorkey((0,0,0), RLEACCEL)
         #self.surf = pygame.Surface((75,25))
         #self.surf.fill((255,255,255))
         self.rect = self.image.get_rect()
@@ -16,13 +17,13 @@ class Player(pygame.sprite.Sprite):
         self.score = 0
     def update(self, pressed_keys):
         if pressed_keys[K_UP]:
-            self.rect.move_ip(0,-5)
+            self.rect.move_ip(0,-6)
         if pressed_keys[K_DOWN]:
-            self.rect.move_ip(0,5)
+            self.rect.move_ip(0,6)
         if pressed_keys[K_LEFT]:
-            self.rect.move_ip(-5,0)
+            self.rect.move_ip(-6,0)
         if pressed_keys[K_RIGHT]:
-            self.rect.move_ip(5,0)
+            self.rect.move_ip(6,0)
         #screen logic
         if self.rect.left < 0:
             self.rect.left = 0
